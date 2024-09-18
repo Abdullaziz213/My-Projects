@@ -1,0 +1,4 @@
+Adafruit CircuitPython 8.2.6 on 2023-09-12; Adafruit PyPortal Titano with samd51j20
+Board ID:pyportal_titano
+UID:AC6F709D3339395320202038350907FF
+boot.py Ausgabe:
