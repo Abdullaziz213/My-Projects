@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Autokauf</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body { padding-top:50px; }
+    </style>
+</head>
+
+<h1>inserieren</h1>
+<form action="/inserieren" method="POST">
+<div class="jumbotron">
+    <div>
+        <label for="name">Marke</label>
+        <input type="text" id="marke" name="marke" required>
+    </div>
+    <div>
+        <label for="name">Preis</label>
+        <input type="number" id="preis" name="preis" required>
+    </div>
+    <div>
+        <label for="name">Baujahr</label>
+        <input type="number" id="baujahr" name="baujahr" required>
+    </div>
+</div>
+
+<button type="submit"> inserieren</button>
+
+</form>
+<a href="/verkauf">zurueck</a>
+

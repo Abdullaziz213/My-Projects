@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <title>Autokauf</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+      body { padding-top:50px; }
+    </style>
+</head>
+<body class="container">
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Autokauf</a>
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/kauf">Kauf</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/verkauf">Verkauf</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <div class="jumbotron">
+    <h1>Deine Auto inserate</h1>
+    <a href="/inserieren" class="btn btn-secondary active" role="button" data-bs-toggle="button" aria-pressed="true">Neu inserieren</a>
+    <ul id="autoList"></ul>
+  </div>
+</main>
+<script>
+  async function fetchAutos() {
+    try {
+      const response = await fetch('/meine-autos');
+      if (!response.ok) {
+        throw new Error('Fehler beim Abrufen der Daten');
+      }
+      const autos = await response.json();
+      displayAutos(autos);
+    } catch (error) {
+      console.error('Fehler beim Abrufen der Daten:', error);
+      alert('Ein Fehler ist aufgetreten');
+    }
+  }
+
+  function displayAutos(autos) {
+    const autoList = document.getElementById('autoList');
+
+    autos.forEach(auto => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `Marke: ${auto.marke}, Preis: ${auto.preis}, Baujahr: ${auto.baujahr}`;
+      autoList.appendChild(listItem);
+    });
+  }
+
+  fetchAutos();
+</script>
+<footer>
+  <p class="text-center text-muted">&copy; Abdulls Autowebseite</p>
+</footer>
+
+</body>
+</html>
